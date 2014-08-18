@@ -76,6 +76,8 @@ var config = [
         clientPlugins: [
             "ext/filesystem/filesystem",
             "ext/editors/editors",
+            "ext/themes/themes",
+            "ext/themes_default/themes_default",
             "ext/panels/panels",
             "ext/dockpanel/dockpanel",
             "ext/openfiles/openfiles",
@@ -125,7 +127,7 @@ var config = [
             "ext/gitblame/gitblame",
             //"ext/githistory/githistory",
             "ext/autosave/autosave",
-            //"ext/revisions/revisions",
+            "ext/revisions/revisions",
         //    "ext/language/liveinspect",
             "ext/splitview/splitview"
         ]
