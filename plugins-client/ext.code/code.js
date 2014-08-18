@@ -434,12 +434,6 @@ module.exports = ext.register("ext/code/code", {
 
     registerMenuItems: function() {
         var _self = this;
-        var c = 20000;
-        this.menus.push(
-            menus.addItemByPath("Tools/~", new apf.divider(), c += 100),
-            addEditorMenu("Tools/Toggle Macro Recording", "togglerecording"), //@todo this needs some more work
-            addEditorMenu("Tools/Play Macro", "replaymacro")//@todo this needs some more work
-        );
 
         c = 600;
         this.menus.push(

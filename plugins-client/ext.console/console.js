@@ -21,7 +21,7 @@ var markup = require("text!ext/console/console.xml");
 var theme = require("text!ext/console/themes/arthur.css");
 var inputHistory = require("ext/console/input_history");
 var anims = require("ext/anims/anims");
-var preview = require("ext/preview/preview");
+//var preview = require("ext/preview/preview");
 
 // Some constants used throughout the plugin
 var KEY_TAB = 9, KEY_CR = 13, KEY_UP = 38, KEY_ESC = 27, KEY_DOWN = 40;
@@ -454,8 +454,9 @@ module.exports = ext.register("ext/console/console", {
             this.createProcessLog(message.pid, lang[1]);
             return;
         } else if ((lang = /^([\w-]+)-web-start$/.exec(message.type)) && runners.indexOf(lang[1]) >= 0) {
-            if (apf.isTrue(settings.model.queryValue("preview/@running_app")) || preview.isVisible())
-                preview.preview(message.url);
+          true;
+          //  if (apf.isTrue(settings.model.queryValue("preview/@running_app")) || preview.isVisible())
+          //     preview.preview(message.url);
         } else if ((lang = /^(\w+)-data$/.exec(message.type)) && runners.indexOf(lang[1]) >= 0) {
             if (message.extra && message.extra.tip) {
                 message.data = "\u001b[1;32;40m" + message.data;
@@ -706,18 +707,6 @@ module.exports = ext.register("ext/console/console", {
                 ["Commit", "git commit -m ", null, null, true],
                 ["Checkout", "git checkout ", null, null, true]
             ],
-            "Hg" : [
-                ["Sum", "hg sum"],
-                ["Push", "hg push"],
-                ["Pull", "hg pull"],
-                ["Status", "hg status"],
-                ["Commit", "hg commit -m ", null, null, true],
-                ["Parents", "hg parents ", null, null, true]
-            ],
-            "Npm" : [
-                ["Install", "npm install"],
-                ["Uninstall", "npm uninstall", null, null, true]
-            ]
         };
 
         var idx = 40000;
