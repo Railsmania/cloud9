@@ -101,6 +101,7 @@ var config = [
             "ext/imgview/imgview",
             "ext/console/console",
     //        "ext/consolehints/consolehints",
+            "ext/noderunner/noderunner", //Add location rule
             "ext/tabbehaviors/tabbehaviors",
             "ext/tabsessions/tabsessions",
             //"ext/keybindings/keybindings",
@@ -164,13 +165,32 @@ var config = [
     "./cloud9.eventbus",
     "./cloud9.process-manager",
     "./cloud9.routes",
+    // All these plugins are needed to run commands
     "./cloud9.run.shell",
+    {
+      packagePath: "./cloud9.run.node",
+      listenHint: "Important: in your scripts, use 'process.env.PORT' as port and '0.0.0.0' as host."
+    },
+    {
+      packagePath: "./cloud9.run.node-debug",
+      listenHint: "Important: in your scripts, use 'process.env.PORT' as port and '0.0.0.0' as host.",
+      debugPort: debugPort
+     },
+    "./cloud9.run.npm",
+    "./cloud9.run.npmnode",
+    "./cloud9.run.ruby",
     "architect/plugins/architect.log",
     "./cloud9.ide.auth",
     "./cloud9.ide.git",
     "./cloud9.ide.gittools",
     "./cloud9.ide.filelist",
     "./cloud9.ide.search",
+    "./cloud9.ide.run-ruby",
+    "./cloud9.ide.run-node",
+     {
+       packagePath: "./cloud9.ide.run-npm-module",
+       allowShell: true
+     },
     "./cloud9.ide.revisions",
     "./cloud9.ide.shell",
     "./cloud9.ide.state"
